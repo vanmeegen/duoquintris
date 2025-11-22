@@ -31,6 +31,7 @@
             <select v-model="selectedTheme" class="theme-select glass-btn">
               <option value="modern">Modern</option>
               <option value="vintage">Vintage</option>
+              <option value="cyberpunk">Cyberpunk</option>
             </select>
           </div>
         </div>
@@ -162,6 +163,9 @@ function createMiniBoard(shape: Shape, colorId: number): GameBoard {
 function getBackgroundStyle() {
   if (selectedTheme.value === 'vintage') {
     return { backgroundImage: 'url(/vintage-bg.png)' };
+  }
+  if (selectedTheme.value === 'cyberpunk') {
+    return { backgroundImage: 'url(/cyberpunk-bg.png)' };
   }
   return { backgroundImage: 'url(/bg.png)' };
 }
@@ -487,6 +491,11 @@ onUnmounted(() => {
   min-width: 120px;
 }
 
+.theme-select option {
+  color: #333;
+  background-color: white;
+}
+
 .glass-btn.active {
   background: rgba(100, 200, 255, 0.4);
   border: 2px solid rgba(100, 200, 255, 0.6);
@@ -634,5 +643,60 @@ onUnmounted(() => {
 .theme-vintage h3 {
   color: #3E2723;
 }
-</style>
 
+/* Cyberpunk (Mad Max Style) Theme Overrides */
+.theme-cyberpunk {
+  color: #fcee0a; /* Toxic Yellow */
+  text-shadow: 0 0 5px rgba(252, 238, 10, 0.5);
+  font-family: 'Courier New', Courier, monospace; /* More industrial feel */
+}
+
+.theme-cyberpunk .glass-panel {
+  background: rgba(30, 20, 10, 0.8);
+  border: 2px solid #b7410e; /* Rust */
+  box-shadow: 0 0 15px rgba(183, 65, 14, 0.3), inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.theme-cyberpunk .glass-btn {
+  background: rgba(50, 30, 20, 0.8);
+  border: 1px solid #fcee0a;
+  color: #fcee0a;
+  text-shadow: 0 0 3px rgba(252, 238, 10, 0.5);
+  box-shadow: 0 0 5px rgba(183, 65, 14, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.theme-cyberpunk .glass-btn:hover {
+  background: rgba(183, 65, 14, 0.4); /* Rust hover */
+  box-shadow: 0 0 15px rgba(252, 238, 10, 0.4);
+  color: #fff;
+}
+
+.theme-cyberpunk .glass-btn.active {
+  background: rgba(183, 65, 14, 0.6);
+  border: 2px solid #fcee0a;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(183, 65, 14, 0.6);
+}
+
+.theme-cyberpunk .theme-select {
+  background: rgba(20, 10, 5, 0.9);
+  border: 1px solid #b7410e;
+  color: #fcee0a;
+}
+
+.theme-cyberpunk .game-over-overlay h1 {
+  color: #fcee0a;
+  text-shadow: 0 0 10px #b7410e, 0 0 20px #b7410e;
+}
+
+.theme-cyberpunk h2,
+.theme-cyberpunk h3 {
+  color: #fcee0a;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-bottom: 1px solid #b7410e;
+  padding-bottom: 5px;
+}
+</style>
