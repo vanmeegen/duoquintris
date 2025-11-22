@@ -32,6 +32,7 @@
               <option value="modern">Modern</option>
               <option value="vintage">Vintage</option>
               <option value="cyberpunk">Cyberpunk</option>
+              <option value="psychedelic">Psychedelic</option>
             </select>
           </div>
         </div>
@@ -166,6 +167,9 @@ function getBackgroundStyle() {
   }
   if (selectedTheme.value === 'cyberpunk') {
     return { backgroundImage: 'url(/cyberpunk-bg.png)' };
+  }
+  if (selectedTheme.value === 'psychedelic') {
+    return { backgroundImage: 'url(/psychedelic-bg.png)' };
   }
   return { backgroundImage: 'url(/bg.png)' };
 }
@@ -698,5 +702,60 @@ onUnmounted(() => {
   letter-spacing: 3px;
   border-bottom: 1px solid #b7410e;
   padding-bottom: 5px;
+}
+
+/* Psychedelic Theme Overrides */
+.theme-psychedelic {
+  color: #FFD700; /* Gold/Yellow */
+  text-shadow: 2px 2px 0px #FF00FF; /* Magenta shadow */
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif; /* Playful font */
+}
+
+.theme-psychedelic .glass-panel {
+  background: rgba(75, 0, 130, 0.6); /* Indigo */
+  border: 3px solid #FF00FF; /* Magenta */
+  border-radius: 20px; /* Extra rounded */
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.theme-psychedelic .glass-btn {
+  background: rgba(255, 20, 147, 0.6); /* Deep Pink */
+  border: 2px solid #FFFF00; /* Yellow */
+  color: #FFFF00;
+  border-radius: 25px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.theme-psychedelic .glass-btn:hover {
+  background: rgba(255, 255, 0, 0.6); /* Yellow */
+  color: #FF00FF; /* Magenta */
+  border-color: #FF00FF;
+  transform: scale(1.05);
+}
+
+.theme-psychedelic .glass-btn.active {
+  background: #FF00FF;
+  color: #FFFF00;
+  box-shadow: 0 0 20px #FFFF00;
+}
+
+.theme-psychedelic .theme-select {
+  background: rgba(75, 0, 130, 0.8);
+  border: 2px solid #FF00FF;
+  color: #FFFF00;
+  border-radius: 15px;
+}
+
+.theme-psychedelic .game-over-overlay h1 {
+  color: #FFFF00;
+  text-shadow: 3px 3px 0 #FF00FF, 6px 6px 0 #00FFFF;
+  font-style: italic;
+}
+
+.theme-psychedelic h2,
+.theme-psychedelic h3 {
+  color: #00FFFF; /* Cyan */
+  text-shadow: 2px 2px 0 #FF00FF;
 }
 </style>
